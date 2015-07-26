@@ -1,0 +1,45 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>net.sf.companymanager.karaf</groupId>
+    <artifactId>karaf-features</artifactId>
+    <version>0.6.0-SNAPSHOT</version>
+  </parent>
+  <artifactId>cm-persistence</artifactId>
+  <packaging>feature</packaging>
+  <name>cm :: Feature :: Persistence</name>
+
+  <dependencies>
+
+    <dependency>
+      <groupId>net.sf.companymanager.karaf</groupId>
+      <artifactId>cm-ext-postgres</artifactId>
+      <classifier>features</classifier>
+      <type>xml</type>
+      <version>0.6.0-SNAPSHOT</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.data</groupId>
+      <artifactId>spring-data-commons</artifactId>
+      <version>1.9.1.RELEASE</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.7.7</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- Liquibase and osgi extender -->
+    <dependency>
+      <groupId>org.openengsb.labs.liquibase</groupId>
+      <artifactId>features</artifactId>
+      <version>0.2.0</version>
+      <type>xml</type>
+      <classifier>features</classifier>
+    </dependency>
+
+  </dependencies>
+</project>

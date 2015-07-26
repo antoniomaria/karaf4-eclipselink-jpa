@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>net.sf.companymanager</groupId>
+    <artifactId>companymanager</artifactId>
+    <version>0.6.0-SNAPSHOT</version>
+  </parent>
+  <packaging>bundle</packaging>
+  <artifactId>companymanager-ddlgenerator</artifactId>
+  <name>CM :: Tools :: DDL generator</name>
+  <dependencies>
+    <!-- Project dependencies -->
+    <dependency>
+      <groupId>net.sf.companymanager.persistence</groupId>
+      <artifactId>companymanager-dao-blueprint</artifactId>
+      <version>0.6.0-SNAPSHOT</version>
+      <type>bundle</type>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+        <extensions>true</extensions>
+        <configuration>
+          <instructions>
+            <Import-Package>
+              *
+            </Import-Package>
+            <Export-Package></Export-Package>
+          </instructions>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<features name="cm-persistence">
+
+  <feature name="cm-persistence" description="companymanager Domain">
+    <feature>scr</feature>
+    <feature>jpa</feature>
+    <feature>eclipselink</feature>
+
+
+    <feature>pax-jdbc-config</feature>
+
+    <feature>cm-ext-postgres</feature>
+    <feature>pax-jdbc-h2</feature>
+
+
+    <feature>pax-jdbc-pool-dbcp2</feature>
+    <!--
+      <feature>pax-jdbc-pool-aries</feature>
+    -->
+
+
+    <feature>http-whiteboard</feature>
+
+    <feature>shiro-core</feature>
+    <feature>liquibase-extender</feature>
+    <feature version="[4.0.7.RELEASE_1,4.1)">spring</feature>
+
+    <bundle start-level="90" start="true">mvn:net.sf.companymanager.persistence/companymanager-jpa/${project.version}</bundle>
+    <bundle start-level="90" start="true">mvn:net.sf.companymanager.persistence/companymanager-domain/${project.version}</bundle>
+
+    <bundle start-level="90" start="true">mvn:net.sf.companymanager.persistence/companymanager-dao-blueprint/${project.version}</bundle>
+    <bundle start-level="90" start="true">mvn:net.sf.companymanager.persistence/companymanager-qbe/${project.version}</bundle>
+
+
+    <bundle start-level="80">mvn:org.apache.commons/commons-lang3/3.1</bundle>
+    <bundle start-level="80">mvn:org.springframework.data/spring-data-commons/1.9.1.RELEASE</bundle>
+    <bundle start-level="80">wrap:mvn:org.springframework/spring-core/4.0.7.RELEASE</bundle>
+    <bundle start-level="80">wrap:mvn:org.springframework/spring-beans/4.0.7.RELEASE</bundle>
+
+  </feature>
+
+  <feature name="shiro-core" version="${shiro.version}">
+    <bundle>mvn:org.apache.shiro/shiro-core/${shiro.version}</bundle>
+  </feature>
+</features>

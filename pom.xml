@@ -1,0 +1,1021 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>net.sf.companymanager</groupId>
+  <artifactId>companymanager</artifactId>
+  <packaging>pom</packaging>
+  <version>0.6.0-SNAPSHOT</version>
+  <name>cm :: Parent :: Parent Project</name>
+  <url>https://github.com/antoniomaria/companymanager</url>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+    <!-- Karaf related -->
+    <!--
+      <karaf.version>3.0.3</karaf.version>
+      <pax-logging-service.version>1.8.1</pax-logging-service.version>
+      <pax-web-features.version>3.1.4</pax-web-features.version>
+      <pax-logging-logback.version>1.8.2</pax-logging-logback.version>
+    -->
+
+    <karaf.version>4.0.0</karaf.version>
+    <pax-logging-service.version>1.8.3</pax-logging-service.version>
+    <pax-web-features.version>3.1.4</pax-web-features.version>
+    <pax-logging-logback.version>1.8.3</pax-logging-logback.version>
+
+
+    <spring.version>4.0.7.RELEASE</spring.version>
+    <spring.data.jpa.version>1.7.1.RELEASE</spring.data.jpa.version>
+    <slf4j.version>1.7.7</slf4j.version>
+    <logback.version>1.1.2</logback.version>
+    <eclipselink.version>2.6.0-M3</eclipselink.version>
+    <postgres.version>9.3-1102-jdbc41</postgres.version>
+    <mysql.version>5.1.23</mysql.version>
+    <swagger.version>1.3.7</swagger.version>
+    <jackson.version>2.4.3</jackson.version>
+    <joda.time.version>2.4</joda.time.version>
+    <commons.lang3.version>3.1</commons.lang3.version>
+    <cxf.version>3.0.2</cxf.version>
+    <findbugs.plugin.version>2.5.4</findbugs.plugin.version>
+    <shiro.version>1.3.0-SNAPSHOT</shiro.version>
+    <easymock.version>3.2</easymock.version>
+    <flyway.version>3.0</flyway.version>
+    <dozer.version>5.5.1</dozer.version>
+    <dbunit.version>2.4.9</dbunit.version>
+    <liquibase.version>3.3.2</liquibase.version>
+    <transactionhelper.version>2.0.1</transactionhelper.version>
+
+    <bnd.version>2.0.0.20130123-133441</bnd.version>
+  </properties>
+
+  <scm>
+    <connection>scm:git:git@github.com:antoniomaria/companymanager.git</connection>
+    <url>scm:git:git@github.com:antoniomaria/companymanager.git</url>
+    <developerConnection>scm:git:git@github.com:antoniomaria/companymanager.git</developerConnection>
+    <tag>HEAD</tag>
+  </scm>
+
+  <!-- http://wiki.cloudbees.com/bin/view/DEV/CloudBees+Private+Maven+Repository -->
+  <distributionManagement>
+    <snapshotRepository>
+      <id>cloudbees-private-snapshot-repository</id>
+      <url>dav:https://repository-antoniomaria.forge.cloudbees.com/snapshot/</url>
+    </snapshotRepository>
+    <repository>
+      <id>cloudbees-private-repository</id>
+      <url>dav:https://repository-antoniomaria.forge.cloudbees.com/release/</url>
+    </repository>
+  </distributionManagement>
+  <modules>
+    <module>ddlgenerator</module>
+    <module>persistence</module>
+    <module>karaf-assembly</module>
+    <module>karaf-features</module>
+    <module>services-ds</module>
+  </modules>
+  <repositories>
+    <repository>
+      <id>java.net</id>
+      <url>http://download.java.net/maven/2</url>
+    </repository>
+    <!-- Allow access to Spring milestones and snapshots -->
+    <repository>
+      <id>spring-snapshots</id>
+      <url>http://repo.spring.io/snapshot</url>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+
+    <repository>
+      <id>apache-snapshots</id>
+      <url>http://repository.apache.org/content/groups/snapshots-group</url>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>spring-milestones</id>
+      <url>http://repo.spring.io/milestone</url>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+    <!-- Vaadin repositories -->
+    <repository>
+      <id>vaadin-addons</id>
+      <url>http://maven.vaadin.com/vaadin-addons</url>
+    </repository>
+    <repository>
+      <id>vaadin-snapshots</id>
+      <url>http://oss.sonatype.org/content/repositories/vaadin-snapshots/</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>sonatype-snapshot</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>jboss-public-repository-group</id>
+      <name>JBoss Public Maven Repository Group</name>
+      <url>http://repository.jboss.org/nexus/content/groups/public</url>
+    </repository>
+    <repository>
+      <id>oss.sonatype.org</id>
+      <name>OSS Sonatype Staging</name>
+      <url>https://oss.sonatype.org/content/groups/staging</url>
+    </repository>
+  </repositories>
+  <pluginRepositories>
+    <pluginRepository>
+      <id>vaadin-snapshots</id>
+      <url>http://oss.sonatype.org/content/repositories/vaadin-snapshots/</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+      </snapshots>
+    </pluginRepository>
+    <pluginRepository>
+      <id>spring-snapshots</id>
+      <url>http://repo.spring.io/snapshot</url>
+    </pluginRepository>
+    <pluginRepository>
+      <id>spring-milestones</id>
+      <url>http://repo.spring.io/milestone</url>
+    </pluginRepository>
+    <pluginRepository>
+      <id>jboss-public-repository-group</id>
+      <name>JBoss Public Maven Repository Group</name>
+      <url>http://repository.jboss.org/nexus/content/groups/public</url>
+    </pluginRepository>
+  </pluginRepositories>
+  <dependencyManagement>
+    <dependencies>
+      <!-- Test dependencies -->
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.11</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-test</artifactId>
+        <version>${spring.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.dbunit</groupId>
+        <artifactId>dbunit</artifactId>
+        <version>${dbunit.version}</version>
+        <exclusions>
+          <exclusion>
+            <artifactId>slf4j-api</artifactId>
+            <groupId>org.slf4j</groupId>
+          </exclusion>
+          <exclusion>
+            <artifactId>junit</artifactId>
+            <groupId>junit</groupId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+
+      <dependency>
+        <groupId>com.github.springtestdbunit</groupId>
+        <artifactId>spring-test-dbunit</artifactId>
+        <version>1.1.0</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.easytesting</groupId>
+        <artifactId>fest-assert-core</artifactId>
+        <version>2.0M10</version>
+      </dependency>
+
+
+      <dependency>
+        <groupId>org.easymock</groupId>
+        <artifactId>easymock</artifactId>
+        <version>${easymock.version}</version>
+      </dependency>
+
+      <!-- JDBC drivers -->
+      <dependency>
+        <groupId>org.postgresql</groupId>
+        <artifactId>postgresql</artifactId>
+        <version>${postgres.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>${mysql.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.hsqldb</groupId>
+        <artifactId>hsqldb</artifactId>
+        <version>2.3.2</version>
+      </dependency>
+
+      <!-- Logger logback -->
+      <dependency>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-classic</artifactId>
+        <version>${logback.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>${slf4j.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>jcl-over-slf4j</artifactId>
+        <version>${slf4j.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>jul-to-slf4j</artifactId>
+        <version>${slf4j.version}</version>
+      </dependency>
+
+      <!-- Project dependencies -->
+      <dependency>
+        <groupId>net.sf.companymanager</groupId>
+        <artifactId>companymanager-testsuite</artifactId>
+        <version>${project.version}</version>
+
+      </dependency>
+
+
+      <dependency>
+        <groupId>net.sf.companymanager</groupId>
+        <artifactId>companymanager-api</artifactId>
+        <version>${project.version}</version>
+
+      </dependency>
+
+      <dependency>
+        <groupId>net.sf.companymanager.persistence</groupId>
+        <artifactId>companymanager-dao</artifactId>
+        <version>${project.version}</version>
+
+      </dependency>
+
+      <dependency>
+        <groupId>net.sf.companymanager.persistence</groupId>
+        <artifactId>companymanager-db</artifactId>
+        <version>${project.version}</version>
+
+      </dependency>
+
+      <dependency>
+        <groupId>net.sf.companymanager.persistence</groupId>
+        <artifactId>companymanager-domain</artifactId>
+        <version>${project.version} </version>
+
+      </dependency>
+
+      <dependency>
+        <groupId>net.sf.companymanager.persistence</groupId>
+        <artifactId>companymanager-jpa</artifactId>
+        <version>${project.version}</version>
+
+      </dependency>
+
+      <dependency>
+        <groupId>net.sf.companymanager.persistence</groupId>
+        <artifactId>companymanager-qbe</artifactId>
+        <version>${project.version}</version>
+
+      </dependency>
+
+      <dependency>
+        <groupId>net.sf.companymanager</groupId>
+        <artifactId>companymanager-dtos</artifactId>
+        <version>${project.version}</version>
+
+      </dependency>
+
+      <dependency>
+        <groupId>net.sf.companymanager</groupId>
+        <artifactId>companymanager-facades</artifactId>
+        <version>${project.version}</version>
+
+      </dependency>
+
+      <dependency>
+        <groupId>net.sf.companymanager</groupId>
+        <artifactId>companymanager-jaas</artifactId>
+        <version>${project.version}</version>
+
+      </dependency>
+
+      <dependency>
+        <groupId>net.sf.companymanager</groupId>
+        <artifactId>companymanager-rest-security</artifactId>
+        <version>${project.version}</version>
+
+      </dependency>
+
+      <dependency>
+        <groupId>net.sf.companymanager</groupId>
+        <artifactId>companymanager-rest-cxf-contrib</artifactId>
+        <version>${project.version}</version>
+
+      </dependency>
+
+      <dependency>
+        <groupId>net.sf.companymanager</groupId>
+        <artifactId>companymanager-services</artifactId>
+        <version>${project.version}</version>
+
+      </dependency>
+
+      <dependency>
+        <groupId>net.sf.companymanager</groupId>
+        <artifactId>companymanager-components</artifactId>
+        <version>${project.version}</version>
+
+      </dependency>
+
+      <dependency>
+        <groupId>net.sf.companymanager</groupId>
+        <artifactId>companymanager-questionnaires-backend</artifactId>
+        <version>${project.version}</version>
+
+      </dependency>
+
+      <dependency>
+        <groupId>net.sf.companymanager</groupId>
+        <artifactId>companymanager-types</artifactId>
+        <version>${project.version}</version>
+
+      </dependency>
+
+      <!-- Third party dependencies -->
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-core</artifactId>
+        <version>${spring.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-context</artifactId>
+        <version>${spring.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-context-support</artifactId>
+        <version>${spring.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-web</artifactId>
+        <version>${spring.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-jdbc</artifactId>
+        <version>${spring.version}</version>
+      </dependency>
+
+
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-aspects</artifactId>
+        <version>${spring.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.springframework.security</groupId>
+        <artifactId>spring-security-core</artifactId>
+        <version>${spring.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.springframework.security</groupId>
+        <artifactId>spring-security-web</artifactId>
+        <version>${spring.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-oxm</artifactId>
+        <version>${spring.version}</version>
+      </dependency>
+
+      <!-- Spring data jpa -->
+      <dependency>
+        <groupId>org.springframework.data</groupId>
+        <artifactId>spring-data-jpa</artifactId>
+        <version>${spring.data.jpa.version}</version>
+      </dependency>
+
+      <!-- Javax Specifications -->
+      <dependency>
+        <groupId>org.eclipse.persistence</groupId>
+        <artifactId>javax.persistence</artifactId>
+        <version>2.1.0</version>
+        <exclusions>
+          <exclusion>
+            <artifactId>commonj.sdo</artifactId>
+            <groupId>org.eclipse.persistence</groupId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+
+      <dependency>
+        <groupId>javax.ws.rs</groupId>
+        <artifactId>javax.ws.rs-api</artifactId>
+        <version>2.0.1</version>
+      </dependency>
+
+      <dependency>
+        <groupId>javax.validation</groupId>
+        <artifactId>validation-api</artifactId>
+        <version>1.1.0.Final</version>
+      </dependency>
+
+      <dependency>
+        <groupId>javax.el</groupId>
+        <artifactId>javax.el-api</artifactId>
+        <version>3.0.1-b04</version>
+      </dependency>
+
+      <!-- Javax provider -->
+      <!-- JPA 2.1 Eclipselink -->
+      <dependency>
+        <groupId>org.eclipse.persistence</groupId>
+        <artifactId>org.eclipse.persistence.jpa</artifactId>
+        <version>${eclipselink.version}</version>
+      </dependency>
+
+      <!-- Eclipselink -->
+      <dependency>
+        <groupId>org.eclipse.persistence</groupId>
+        <artifactId>org.eclipse.persistence.antlr</artifactId>
+        <version>${eclipselink.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.eclipse.persistence</groupId>
+        <artifactId>org.eclipse.persistence.asm</artifactId>
+        <version>${eclipselink.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.eclipse.persistence</groupId>
+        <artifactId>org.eclipse.persistence.core</artifactId>
+        <version>${eclipselink.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.eclipse.persistence</groupId>
+        <artifactId>org.eclipse.persistence.jpa.jpql</artifactId>
+        <version>${eclipselink.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.eclipse.persistence</groupId>
+        <artifactId>org.eclipse.persistence.moxy</artifactId>
+        <version>${eclipselink.version}</version>
+      </dependency>
+
+      <!-- JSR 349 - Bean Validation 1.1 API -->
+      <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-validator</artifactId>
+        <version>5.0.2.Final</version>
+      </dependency>
+
+      <!-- JAX-RS 2.0 Apache CXF -->
+      <dependency>
+        <groupId>org.apache.cxf</groupId>
+        <artifactId>cxf-rt-frontend-jaxrs</artifactId>
+        <version>${cxf.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.apache.cxf</groupId>
+        <artifactId>cxf-rt-rs-client</artifactId>
+        <version>${cxf.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.apache.cxf</groupId>
+        <artifactId>cxf-rt-rs-extension-providers</artifactId>
+        <version>${cxf.version}</version>
+      </dependency>
+
+      <!-- API for the Unified Expression Language -->
+      <dependency>
+        <groupId>org.glassfish</groupId>
+        <artifactId>javax.el</artifactId>
+        <version>3.0.1-b05</version>
+      </dependency>
+
+      <!-- Jackson provider -->
+      <dependency>
+        <groupId>com.fasterxml.jackson.jaxrs</groupId>
+        <artifactId>jackson-jaxrs-json-provider</artifactId>
+        <version>${jackson.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.fasterxml.jackson.module</groupId>
+        <artifactId>jackson-module-scala_2.10</artifactId>
+        <version>${jackson.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.fasterxml.jackson.module</groupId>
+        <artifactId>jackson-module-jsonSchema</artifactId>
+        <version>${jackson.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.fasterxml.jackson.datatype</groupId>
+        <artifactId>jackson-datatype-jsr310</artifactId>
+        <version>${jackson.version}</version>
+      </dependency>
+
+      <!-- API rest documenter -->
+      <dependency>
+        <groupId>com.wordnik</groupId>
+        <artifactId>swagger-core_2.10</artifactId>
+        <version>${swagger.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.wordnik</groupId>
+        <artifactId>swagger-jaxrs_2.10</artifactId>
+        <version>${swagger.version}</version>
+      </dependency>
+
+      <!-- Google flyway -->
+      <dependency>
+        <groupId>org.flywaydb</groupId>
+        <artifactId>flyway-core</artifactId>
+        <version>${flyway.version}</version>
+      </dependency>
+
+      <!-- Jodatime -->
+      <dependency>
+        <groupId>joda-time</groupId>
+        <artifactId>joda-time</artifactId>
+        <version>${joda.time.version}</version>
+      </dependency>
+      <!-- Commons lang -->
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-lang3</artifactId>
+        <version>${commons.lang3.version}</version>
+      </dependency>
+
+      <!-- Velocity -->
+      <dependency>
+        <groupId>org.apache.velocity</groupId>
+        <artifactId>velocity</artifactId>
+        <version>1.7</version>
+      </dependency>
+
+      <!-- Dozer mapping -->
+      <dependency>
+        <groupId>net.sf.dozer</groupId>
+        <artifactId>dozer</artifactId>
+        <version>${dozer.version}</version>
+        <exclusions>
+          <exclusion>
+            <artifactId>slf4j-api</artifactId>
+            <groupId>org.slf4j</groupId>
+          </exclusion>
+          <exclusion>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <groupId>org.slf4j</groupId>
+          </exclusion>
+          <exclusion>
+            <artifactId>slf4j-log4j12</artifactId>
+            <groupId>org.slf4j</groupId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+
+      <dependency>
+        <groupId>net.sf.dozer</groupId>
+        <artifactId>dozer-spring</artifactId>
+        <version>${dozer.version}</version>
+      </dependency>
+
+
+      <!-- Aspectj -->
+      <dependency>
+        <groupId>org.aspectj</groupId>
+        <artifactId>aspectjweaver</artifactId>
+        <version>1.7.3</version>
+      </dependency>
+
+
+      <!-- Shiro security -->
+      <dependency>
+        <groupId>org.apache.shiro</groupId>
+        <artifactId>shiro-core</artifactId>
+        <version>${shiro.version}</version>
+      </dependency>
+
+      <!-- Transaction Helper -->
+      <dependency>
+        <groupId>org.everit.osgi</groupId>
+        <artifactId>org.everit.osgi.transaction.helper</artifactId>
+        <version>${transactionhelper.version}</version>
+        <scope>provided</scope>
+      </dependency>
+
+    </dependencies>
+  </dependencyManagement>
+
+  <profiles>
+    <profile>
+      <id>uml</id>
+      <activation>
+        <property>
+          <name>uml</name>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <version>2.9</version>
+            <executions>
+              <execution>
+                <phase>pre-integration-test</phase>
+                <goals>
+                  <goal>javadoc</goal>
+                </goals>
+              </execution>
+            </executions>
+            <configuration>
+              <doclet>org.umlgraph.doclet.UmlGraph</doclet>
+              <docletPath>C:/Users/antonio/git/antoniomaria/companymanager/uml/UmlGraph.jar</docletPath>
+              <show>private</show>
+              <additionalparam>-views</additionalparam>
+              <reportOutputDirectory>${project.reporting.outputDirectory}/</reportOutputDirectory>
+              <destDir>uml</destDir>
+              <useStandardDocletOptions>no</useStandardDocletOptions>
+            </configuration>
+          </plugin>
+          <!-- mvn graphviz:dot -Duml=true -X -->
+          <plugin>
+            <groupId>us.bryon</groupId>
+            <artifactId>graphviz-maven-plugin</artifactId>
+            <version>1.0</version>
+            <executions>
+              <execution>
+                <phase>integration-test</phase>
+                <goals>
+                  <goal>dot</goal>
+                </goals>
+              </execution>
+            </executions>
+
+            <configuration>
+              <basedir>${project.reporting.outputDirectory}/uml</basedir>
+              <destdir>${project.build.directory}/graphviz</destdir>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.2</version>
+        <configuration>
+          <encoding>UTF-8</encoding>
+          <source>1.8</source>
+          <target>1.8</target>
+          <!-- For generating the JPA metamodel -->
+          <compilerArgument>-proc:none</compilerArgument>
+        </configuration>
+      </plugin>
+      <!-- mvn release:perform -Dgoals='deploy -f /home/antoniomaria/git/antoniomaria/companymanagersurvey/pom.xml' -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>2.5</version>
+        <configuration>
+          <autoVersionSubmodules>true</autoVersionSubmodules>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>2.4</version>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>jar-no-fork</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>2.10.1</version>
+        <configuration>
+          <tags>
+            <tag>
+              <name>depend</name>
+              <placement>X</placement>
+            </tag>
+            <tag>
+              <name>hidden</name>
+              <placement>X</placement>
+            </tag>
+            <tag>
+              <name>opt</name>
+              <placement>X</placement>
+            </tag>
+            <tag>
+              <name>assoc</name>
+              <placement>X</placement>
+            </tag>
+            <tag>
+              <name>has</name>
+              <placement>X</placement>
+            </tag>
+            <tag>
+              <name>composed</name>
+              <placement>X</placement>
+            </tag>
+            <tag>
+              <name>view</name>
+              <placement>X</placement>
+            </tag>
+            <tag>
+              <name>match</name>
+              <placement>X</placement>
+            </tag>
+          </tags>
+          <doclet>org.umlgraph.doclet.UmlGraphDoc</doclet>
+          <docletPath>C:/Users/antonio/git/antoniomaria/companymanager/uml/UmlGraph.jar</docletPath>
+          <!-- ignore javadoc errors -->
+          <additionalparam>-Xdoclint:none</additionalparam>
+          <additionalparam>-view</additionalparam>
+          <additionalparam>-inferrel</additionalparam>
+          <additionalparam>-inferdep</additionalparam>
+          <additionalparam>-collapsible</additionalparam>
+          <additionalparam>-hide java.*</additionalparam>
+          <additionalparam>-collpackages</additionalparam>
+          <additionalparam>-qualify</additionalparam>
+          <additionalparam>-postfixpackage</additionalparam>
+          <additionalparam>-nodefontsize 9</additionalparam>
+          <additionalparam>-nodefontpackagesize 7</additionalparam>
+          <additionalparam>-link http://docs.oracle.com/javase/8/docs/jdk/api/javadoc/doclet/</additionalparam>
+          <additionalparam>-link http://download.oracle.com/javase/8/docs/api/</additionalparam>
+          <useStandardDocletOptions>true</useStandardDocletOptions>
+        </configuration>
+        <executions>
+          <execution>
+            <id>aggregate</id>
+            <goals>
+              <goal>aggregate</goal>
+            </goals>
+            <phase>site</phase>
+            <configuration>
+              <!-- Specific configuration for the aggregate report -->
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.eluder.coveralls</groupId>
+        <artifactId>coveralls-maven-plugin</artifactId>
+        <version>3.0.1</version>
+        <configuration>
+          <repoToken>crJW78njICUIlG4lmOel0oN5Wyev8wy0N</repoToken>
+        </configuration>
+      </plugin>
+
+      <!-- mvn clean test jacoco:report coveralls:report -->
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>0.7.2.201409121644</version>
+        <configuration>
+          <excludes>
+            <exclude>**/api/**</exclude>
+            <exclude>**/dto/**</exclude>
+            <exclude>**/domain/**</exclude>
+            <exclude>**/types/**</exclude>
+            <exclude>**/jpa/**</exclude>
+            <exclude>**/qbe/**</exclude>
+            <exclude>**/questionnaires/**</exclude>
+            <exclude>**/codelab/**</exclude>
+            <exclude>**/exporter/**</exclude>
+            <exclude>**/importer/**</exclude>
+            <exclude>**/dbpopulator/**</exclude>
+            <exclude>**/ddlgenerator/**</exclude>
+            <exclude>**/dbunit/**</exclude>
+            <exclude>**/jaas/**</exclude>
+            <exclude>**/*Test*</exclude>
+          </excludes>
+        </configuration>
+        <executions>
+          <execution>
+            <id>prepare-agent</id>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+    <extensions>
+      <extension>
+        <groupId>org.apache.maven.wagon</groupId>
+        <artifactId>wagon-webdav</artifactId>
+        <version>1.0-beta-2</version>
+      </extension>
+    </extensions>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.felix</groupId>
+          <artifactId>maven-bundle-plugin</artifactId>
+          <version>2.4.0</version>
+          <executions>
+            <execution>
+              <id>bundle-manifest</id>
+              <phase>process-classes</phase>
+              <goals>
+                <goal>manifest</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <instructions>
+              <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+              <Bundle-Version>${project.version}</Bundle-Version>
+              <Export-Package>${project.groupId}</Export-Package>
+              <Service-Component>*</Service-Component><!-- <Include-Resource>OSGI-OPT/=/src/main/java/</Include-Resource> -->
+              <_dsannotations>*</_dsannotations>
+            </instructions>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>2.6</version>
+          <configuration>
+            <archive>
+              <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+            </archive>
+          </configuration>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.karaf.tooling</groupId>
+          <artifactId>karaf-maven-plugin</artifactId>
+          <version>${karaf.version}</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>findbugs-maven-plugin</artifactId>
+          <version>${findbugs.plugin.version}</version>
+          <configuration>
+            <effort>Max</effort>
+            <threshold>Low</threshold>
+            <xmlOutput>true</xmlOutput>
+            <failOnError>false</failOnError>
+            <findbugsXmlOutputDirectory>${project.build.directory}/findbugs</findbugsXmlOutputDirectory>
+          </configuration>
+          <executions>
+            <execution>
+              <phase>verify</phase>
+              <goals>
+                <goal>check</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+
+        <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself. -->
+        <plugin>
+          <groupId>org.eclipse.m2e</groupId>
+          <artifactId>lifecycle-mapping</artifactId>
+          <version>1.0.0</version>
+          <configuration>
+            <lifecycleMappingMetadata>
+              <pluginExecutions>
+                <pluginExecution>
+                  <pluginExecutionFilter>
+                    <groupId>org.jacoco</groupId>
+                    <artifactId>jacoco-maven-plugin</artifactId>
+                    <versionRange>
+                      [0.7.2,)
+                    </versionRange>
+                    <goals>
+                      <goal>prepare-agent</goal>
+                    </goals>
+                  </pluginExecutionFilter>
+                  <action>
+                    <execute>
+                      <runOnIncremental>true</runOnIncremental>
+                    </execute>
+                  </action>
+                </pluginExecution>
+
+                <pluginExecution>
+                  <pluginExecutionFilter>
+                    <groupId>
+                      org.apache.karaf.tooling
+                    </groupId>
+                    <artifactId>
+                      karaf-maven-plugin
+                    </artifactId>
+                    <versionRange>
+                      [3.0.0,)
+                    </versionRange>
+                    <goals>
+                      <goal>
+                        features-generate-descriptor
+                      </goal>
+                    </goals>
+                  </pluginExecutionFilter>
+                  <action>
+                    <ignore />
+                  </action>
+                </pluginExecution>
+
+                <pluginExecution>
+                  <pluginExecutionFilter>
+                    <groupId>org.apache.karaf.tooling</groupId>
+                    <artifactId>karaf-maven-plugin</artifactId>
+                    <versionRange>[3.0.1,)</versionRange>
+                    <goals>
+                      <goal>install-kars</goal>
+                    </goals>
+                  </pluginExecutionFilter>
+                  <action>
+                    <ignore />
+                  </action>
+                </pluginExecution>
+                <pluginExecution>
+                  <pluginExecutionFilter>
+                    <groupId>org.apache.felix</groupId>
+                    <artifactId>maven-bundle-plugin</artifactId>
+                    <versionRange>[2.4.0,)</versionRange>
+                    <goals>
+                      <goal>index</goal>
+                    </goals>
+                  </pluginExecutionFilter>
+                  <action>
+                    <ignore />
+                  </action>
+                </pluginExecution>
+
+              </pluginExecutions>
+            </lifecycleMappingMetadata>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+</project>

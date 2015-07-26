@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd">
+  <changeSet author="antoniomaria (generated)" id="1437930481928-1">
+    <createTable tableName="company">
+      <column name="id" type="INT4">
+        <constraints nullable="false" />
+      </column>
+      <column name="name" type="VARCHAR(255)" />
+      <column name="version" type="INT4" />
+    </createTable>
+  </changeSet>
+  <changeSet author="antoniomaria (generated)" id="1437930481928-2">
+    <createTable tableName="department">
+      <column name="id" type="INT4">
+        <constraints nullable="false" />
+      </column>
+      <column name="name" type="VARCHAR(255)" />
+      <column name="version" type="INT4" />
+      <column name="company_id" type="INT4" />
+    </createTable>
+  </changeSet>
+  <changeSet author="antoniomaria (generated)" id="1437930481928-3">
+    <createTable tableName="dept_emp">
+      <column name="emp_id" type="INT4">
+        <constraints nullable="false" />
+      </column>
+      <column name="dept_id" type="INT4">
+        <constraints nullable="false" />
+      </column>
+    </createTable>
+  </changeSet>
+  <changeSet author="antoniomaria (generated)" id="1437930481928-4">
+    <createTable tableName="employee">
+      <column name="id" type="INT4">
+        <constraints nullable="false" />
+      </column>
+      <column name="family_name" type="VARCHAR(255)" />
+      <column name="first_date_of_contract" type="date" />
+      <column name="given_names" type="VARCHAR(255)" />
+      <column name="name" type="VARCHAR(255)" />
+      <column name="occupation" type="VARCHAR(255)" />
+      <column name="social_security_number" type="VARCHAR(255)" />
+      <column name="version" type="INT4" />
+    </createTable>
+  </changeSet>
+  <changeSet author="antoniomaria (generated)" id="1437930481928-5">
+    <createTable tableName="office">
+      <column name="id" type="INT4">
+        <constraints nullable="false" />
+      </column>
+      <column name="name" type="VARCHAR(255)" />
+      <column name="version" type="INT4" />
+      <column name="city" type="VARCHAR(255)" />
+      <column name="country" type="VARCHAR(255)" />
+      <column name="state" type="VARCHAR(255)" />
+      <column name="street_address1" type="VARCHAR(255)" />
+      <column name="street_address2" type="VARCHAR(255)" />
+      <column name="zip" type="VARCHAR(255)" />
+      <column name="company_id" type="INT4" />
+    </createTable>
+  </changeSet>
+  <changeSet author="antoniomaria (generated)" id="1437930481928-6">
+    <createTable tableName="sequence">
+      <column name="seq_name" type="VARCHAR(50)">
+        <constraints nullable="false" />
+      </column>
+      <column name="seq_count" type="numeric(38)" />
+    </createTable>
+
+    <insert tableName="sequence">
+      <column name="seq_name" value="SEQ_GEN" />
+      <column name="seq_count" valueNumeric="1" />
+    </insert>
+  </changeSet>
+  <changeSet author="antoniomaria (generated)" id="1437930481928-7">
+    <addPrimaryKey columnNames="id" constraintName="company_pkey" tableName="company" />
+  </changeSet>
+  <changeSet author="antoniomaria (generated)" id="1437930481928-8">
+    <addPrimaryKey columnNames="id" constraintName="department_pkey" tableName="department" />
+  </changeSet>
+  <changeSet author="antoniomaria (generated)" id="1437930481928-9">
+    <addPrimaryKey columnNames="emp_id, dept_id" constraintName="dept_emp_pkey" tableName="dept_emp" />
+  </changeSet>
+  <changeSet author="antoniomaria (generated)" id="1437930481928-10">
+    <addPrimaryKey columnNames="id" constraintName="employee_pkey" tableName="employee" />
+  </changeSet>
+  <changeSet author="antoniomaria (generated)" id="1437930481928-11">
+    <addPrimaryKey columnNames="id" constraintName="office_pkey" tableName="office" />
+  </changeSet>
+  <changeSet author="antoniomaria (generated)" id="1437930481928-12">
+    <addPrimaryKey columnNames="seq_name" constraintName="sequence_pkey" tableName="sequence" />
+  </changeSet>
+  <changeSet author="antoniomaria (generated)" id="1437930481928-13">
+    <addForeignKeyConstraint baseColumnNames="company_id" baseTableName="department" constraintName="fk_department_company_id"
+      deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="company" />
+  </changeSet>
+  <changeSet author="antoniomaria (generated)" id="1437930481928-14">
+    <addForeignKeyConstraint baseColumnNames="dept_id" baseTableName="dept_emp" constraintName="fk_dept_emp_dept_id"
+      deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="department" />
+  </changeSet>
+  <changeSet author="antoniomaria (generated)" id="1437930481928-15">
+    <addForeignKeyConstraint baseColumnNames="emp_id" baseTableName="dept_emp" constraintName="fk_dept_emp_emp_id" deferrable="false"
+      initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="employee" />
+  </changeSet>
+  <changeSet author="antoniomaria (generated)" id="1437930481928-16">
+    <addForeignKeyConstraint baseColumnNames="company_id" baseTableName="office" constraintName="fk_office_company_id"
+      deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="company" />
+  </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>net.sf.companymanager.persistence</groupId>
+    <artifactId>companymanager-persistence</artifactId>
+    <version>0.6.0-SNAPSHOT</version>
+  </parent>
+  <artifactId>companymanager-db</artifactId>
+  <name>cm :: Module :: DB</name>
+  <url>https://github.com/antoniomaria/companymanager</url>
+  <dependencies>
+    <!-- Test -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.jolbox</groupId>
+      <artifactId>bonecp</artifactId>
+      <version>0.8.0.RELEASE</version>
+      <exclusions>
+        <exclusion>
+          <artifactId>guava</artifactId>
+          <groupId>com.google.guava</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>slf4j-api</artifactId>
+          <groupId>org.slf4j</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <!-- Postgres JDBC Driver -->
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <!-- Set timestamp in a variable so it can be used for generated files by liquibase in different goals -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>buildnumber-maven-plugin</artifactId>
+        <version>1.2</version>
+        <configuration>
+          <timestampFormat>yyyyMMdd_HHmmss</timestampFormat>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>validate</phase>
+            <goals>
+              <goal>create-timestamp</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+        <configuration>
+          <instructions>
+            <Import-Package>
+              *
+            </Import-Package>
+            <Export-Package></Export-Package>
+          </instructions>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  <profiles>
+    <profile>
+      <id>gen-change-log</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-maven-plugin</artifactId>
+            <version>${liquibase.version}</version>
+            <configuration>
+              <skip>${skipTests}</skip>
+              <propertyFile>${basedir}/src/main/resources/database/liquibase.properties</propertyFile>
+              <outputChangeLogFile>${project.build.directory}/db-initial.changelog.xml</outputChangeLogFile>
+              <diffTypes>tables,views,columns,indexes,foreignkeys,primarykeys,uniqueconstraints,data</diffTypes>
+            </configuration>
+            <executions>
+              <execution>
+                <id>generateChangeLog</id>
+                <phase>process-resources</phase>
+                <goals>
+                  <goal>generateChangeLog</goal>
+                </goals>
+              </execution>
+            </executions>
+
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+</project>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<features name="cm-services">
+
+  <feature name="cm-services" description="companymanager Services">
+    <feature>cm-persistence</feature>
+    <bundle start-level="90" start="true">mvn:net.sf.companymanager/companymanager-services-ds/${project.version}</bundle>
+  </feature>
+
+</features>

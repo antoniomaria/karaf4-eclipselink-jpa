@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+  <!-- Used by eclipselink-staticweave-maven-plugin and OSGI based port -->
+  <persistence-unit name="companymanager" transaction-type="JTA">
+
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+
+    <!-- Only used when transaction-type=JTA -->
+    <jta-data-source>osgi:service/javax.sql.DataSource/(osgi.jndi.service.name=companymanager)</jta-data-source>
+
+    <non-jta-data-source>osgi:service/javax.sql.DataSource/(osgi.jndi.service.name=companymanager)</non-jta-data-source>
+    <class>net.sf.companymanager.domain.Address</class>
+    <class>net.sf.companymanager.domain.Employee</class>
+
+    <class>net.sf.companymanager.domain.Company</class>
+    <class>net.sf.companymanager.domain.Department</class>
+    <class>net.sf.companymanager.domain.Office</class>
+
+
+    <properties>
+      <property name="eclipselink.logging.logger" value="net.sf.companymanager.jpa.eclipselink.Slf4jSessionLogger" />
+      <property name="eclipselink.logging.parameters" value="true" />
+      <property name="eclipselink.weaving" value="static" />
+      <property name="eclipselink.session.customizer" value="net.sf.companymanager.jpa.eclipselink.CamelNamingStrategy" />
+      <property name="eclipselink.cache.shared.default" value="true" />
+    </properties>
+
+    <!--
+      <properties>
+      <property name="eclipselink.jdbc.driver" value="com.mysql.jdbc.Driver" />
+      <property name="eclipselink.jdbc.url" value="jdbc:mysql://localhost:3306/companymanager" />
+      <property name="eclipselink.jdbc.user" value="root" />
+      <property name="eclipselink.jdbc.password" value="admin" />
+      <property name="eclipselink.weaving" value="static"></property>
+      </properties>
+
+
+      <properties>
+      <property name="eclipselink.jdbc.driver" value="org.postgresql.Driver" />
+      <property name="eclipselink.jdbc.url" value="jdbc:postgresql://localhost:5432/companymanager" />
+      <property name="eclipselink.jdbc.user" value="postgres" />
+      <property name="eclipselink.jdbc.password" value="admin" />
+      <property name="eclipselink.weaving" value="static"></property>
+      </properties>
+    -->
+  </persistence-unit>
+</persistence>
