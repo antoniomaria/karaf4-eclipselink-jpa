@@ -27,5 +27,5 @@
 
   <bean id="officeRepositoryFactory" class="net.sf.companymanager.repository.support.OfficeRepositoryFactory" />
 
-  <bean id="officeRepositoryImpl" factory-ref="genericPojoFactory" factory-method="getObject" />
+  <bean id="officeRepositoryImpl" factory-ref="officeRepositoryFactory" factory-method="getObject" />
 </blueprint>

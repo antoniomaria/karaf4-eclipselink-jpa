@@ -2,25 +2,25 @@ package net.sf.companymanager.repository.support;
 
 import javax.persistence.PersistenceContext;
 
-import org.apache.aries.jpa.supplier.EmSupplier;
-
-import net.sf.companymanager.domain.Employee;
+import net.sf.companymanager.domain.Office;
 import net.sf.companymanager.domain.support.Persistable;
-import net.sf.companymanager.repository.EmployeeRepository;
-import net.sf.companymanager.repository.impl.EmployeeRepositoryImpl;
+import net.sf.companymanager.repository.OfficeRepository;
+import net.sf.companymanager.repository.impl.OfficeRepositoryImpl;
+
+import org.apache.aries.jpa.supplier.EmSupplier;
 
 interface GenericRepositoryFactory<R extends JPARepository<S>, S extends Persistable> {
     R getObject();
 }
 
-public class OfficeRepositoryFactory implements GenericRepositoryFactory<EmployeeRepository, Employee> {
+public class OfficeRepositoryFactory implements GenericRepositoryFactory<OfficeRepository, Office> {
 
     @PersistenceContext(unitName = "companymanager")
     protected EmSupplier em;
 
     @Override
-    public EmployeeRepository getObject() {
-        EmployeeRepositoryImpl repository = new EmployeeRepositoryImpl();
+    public OfficeRepository getObject() {
+        OfficeRepositoryImpl repository = new OfficeRepositoryImpl();
         if (em == null) {
             System.out.println("chungo null");
         } else {
