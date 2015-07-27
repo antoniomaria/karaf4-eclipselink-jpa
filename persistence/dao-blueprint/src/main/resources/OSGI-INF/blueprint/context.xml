@@ -17,8 +17,15 @@
 
   <service ref="departmentRepositoryImpl" interface="net.sf.companymanager.repository.DepartmentRepository" />
   <service ref="employeeRepositoryImpl" interface="net.sf.companymanager.repository.EmployeeRepository" />
+  <service ref="officeRepositoryImpl" interface="net.sf.companymanager.repository.OfficeRepository" />
+
 
   <bean id="departmentRepositoryImpl" class="net.sf.companymanager.repository.impl.DepartmentRepositoryImpl" />
   <bean id="employeeRepositoryImpl" class="net.sf.companymanager.repository.impl.EmployeeRepositoryImpl" />
 
+  <!-- Factories https://github.com/apache/aries/blob/trunk/blueprint/blueprint-core/src/test/resources/test-generics.xml -->
+
+  <bean id="officeRepositoryFactory" class="net.sf.companymanager.repository.support.OfficeRepositoryFactory" />
+
+  <bean id="officeRepositoryImpl" factory-ref="genericPojoFactory" factory-method="getObject" />
 </blueprint>

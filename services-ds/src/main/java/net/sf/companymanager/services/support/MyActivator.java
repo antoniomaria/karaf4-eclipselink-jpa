@@ -19,7 +19,9 @@
 package net.sf.companymanager.services.support;
 
 import net.sf.companymanager.domain.Employee;
+import net.sf.companymanager.domain.Office;
 import net.sf.companymanager.services.EmployeeService;
+import net.sf.companymanager.services.OfficeService;
 
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
@@ -35,18 +37,29 @@ public class MyActivator {
      */
     private static final Logger logger = LoggerFactory.getLogger(MyActivator.class);
 
-    private EmployeeService invitationService;
+    private EmployeeService employeeService;
+
+    private OfficeService officeService;
 
     @Reference
-    public void setInvitationService(final EmployeeService invitationService) {
-        this.invitationService = invitationService;
+    public void setEmployeeService(final EmployeeService invitationService) {
+        this.employeeService = invitationService;
+    }
+
+    @Reference
+    public void setOfficeService(OfficeService officeService) {
+        this.officeService = officeService;
     }
 
     @Activate
     public void addEmployee() {
         logger.info("Adding Employee ...");
         Employee employee = Employee.with().givenNames("Antonio Maria").familyName("Sanchez").build();
-        Employee saved = invitationService.save(employee);
+        Employee saved = employeeService.save(employee);
         logger.info("Employee created with Id = {}", saved.getId());
+        logger.info("Adding a office");
+        Office office = new Office.Builder().name("My office").build();
+        office = officeService.save(office);
+        logger.info("Office created with id={}", office.getId());
     }
 }
