@@ -6,7 +6,7 @@
     <version>0.6.0-SNAPSHOT</version>
   </parent>
   <artifactId>companymanager-dao-blueprint</artifactId>
-  <name>cm :: Module :: DAO blueprint based </name>
+  <name>cm :: Module  :: DAO blueprint based </name>
   <url>https://github.com/antoniomaria/companymanager</url>
   <packaging>bundle</packaging>
 

@@ -9,7 +9,7 @@
   <groupId>net.sf.companymanager.persistence</groupId>
   <artifactId>companymanager-persistence</artifactId>
   <packaging>pom</packaging>
-  <name>cm :: Parent :: Persistence</name>
+  <name>cm :: Parent  :: Persistence</name>
 
   <modules>
     <module>db</module>

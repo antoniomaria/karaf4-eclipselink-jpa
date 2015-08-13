@@ -5,7 +5,7 @@
   <artifactId>companymanager</artifactId>
   <packaging>pom</packaging>
   <version>0.6.0-SNAPSHOT</version>
-  <name>cm :: Parent :: Parent Project</name>
+  <name>cm :: Parent  :: Parent Project</name>
   <url>https://github.com/antoniomaria/companymanager</url>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

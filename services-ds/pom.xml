@@ -7,7 +7,7 @@
   </parent>
   <packaging>bundle</packaging>
   <artifactId>companymanager-services-ds</artifactId>
-  <name>cm :: Module :: Services ( Declarative Services) </name>
+  <name>cm :: Module  :: Services ( Declarative Services) </name>
   <url>https://github.com/antoniomaria/companymanager</url>
 
   <dependencies>
