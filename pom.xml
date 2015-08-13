@@ -72,6 +72,8 @@
     <module>karaf-assembly</module>
     <module>karaf-features</module>
     <module>services-ds</module>
+    <module>rest-ds</module>
+
   </modules>
   <repositories>
     <repository>

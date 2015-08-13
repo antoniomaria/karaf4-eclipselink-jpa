@@ -1,0 +1,116 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>net.sf.companymanager</groupId>
+    <artifactId>companymanager</artifactId>
+    <version>0.6.0-SNAPSHOT</version>
+  </parent>
+  <packaging>bundle</packaging>
+  <artifactId>companymanager-rest-ds</artifactId>
+  <name>cm :: Module  :: Rest Service ( Declarative Services) </name>
+  <url>https://github.com/antoniomaria/companymanager</url>
+
+  <dependencies>
+    <!-- Test dependencies -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- Project libraries -->
+
+    <dependency>
+      <groupId>net.sf.companymanager</groupId>
+      <artifactId>companymanager-services-ds</artifactId>
+      <version>0.6.0-SNAPSHOT</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- CXF -->
+
+    <!-- Apache cxf -->
+    <dependency>
+      <groupId>org.apache.cxf</groupId>
+      <artifactId>cxf-rt-frontend-jaxrs</artifactId>
+      <version>3.0.2</version>
+      <scope>provided</scope>
+
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.cxf</groupId>
+      <artifactId>cxf-rt-rs-client</artifactId>
+      <version>3.0.2</version>
+      <scope>provided</scope>
+
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.cxf</groupId>
+      <artifactId>cxf-rt-rs-extension-providers</artifactId>
+      <version>3.0.2</version>
+      <scope>provided</scope>
+
+    </dependency>
+
+    <dependency>
+      <groupId>biz.aQute</groupId>
+      <artifactId>bndlib</artifactId>
+      <version>2.0.0.20130123-133441</version>
+      <scope>provided</scope>
+    </dependency>
+
+  </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+        <extensions>true</extensions>
+        <configuration>
+          <instructions>
+            <Import-Package>
+              *
+            </Import-Package>
+            <Export-Package>net.sf.companymanager.rest.*</Export-Package>
+            <Bundle-Activator>org.apache.cxf.dosgi.samples.greeter.impl.rest.Activator</Bundle-Activator>
+            <DynamicImport-Package>org.apache.cxf.dosgi.dsw.qos,org.apache.cxf</DynamicImport-Package>
+            <!-- Parse compendium annotation
+              <_dsannotations>*</_dsannotations>
+            -->
+            <Service-Component>*</Service-Component>
+          </instructions>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  <profiles>
+    <profile>
+      <id>findbugs</id>
+      <activation>
+        <property>
+          <name>findbugs</name>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>findbugs-maven-plugin</artifactId>
+            <version>${findbugs.plugin.version}</version>
+          </plugin>
+        </plugins>
+      </build>
+      <reporting>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>findbugs-maven-plugin</artifactId>
+            <version>${findbugs.plugin.version}</version>
+          </plugin>
+        </plugins>
+      </reporting>
+    </profile>
+  </profiles>
+</project>

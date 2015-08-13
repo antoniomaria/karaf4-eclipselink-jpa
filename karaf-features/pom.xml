@@ -15,8 +15,10 @@
     <module>cm-ext-logback</module>
     <module>cm-ext-postgres</module>
     <module>cm-persistence</module>
-    <module>cm-services</module>
     <module>cm-platform</module>
+
+    <module>cm-rest</module>
+    <module>cm-services</module>
   </modules>
 
   <build>

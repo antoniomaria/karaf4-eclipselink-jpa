@@ -2,7 +2,7 @@
 <features name="cm-platform">
 
   <feature name="cm-full" description="companymanager Platform">
-    <feature version="${project.version}">cm-services</feature>
+    <feature version="${project.version}">cm-rest</feature>
   </feature>
 
 </features>
