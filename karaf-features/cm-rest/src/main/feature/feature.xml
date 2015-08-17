@@ -3,7 +3,7 @@
 
   <feature name="cm-rest" description="companymanager rest">
     <feature>cm-services</feature>
-    <feature>cxf-jaxrs</feature>
+    <feature>cxf-dosgi-discovery-local</feature>
   </feature>
 
 </features>
