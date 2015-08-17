@@ -10,12 +10,9 @@
  ******************************************************************************/
 package net.sf.companymanager.rest.impl;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
-
 import net.sf.companymanager.rest.EmployeeResource;
+import aQute.bnd.annotation.component.Component;
+import aQute.bnd.annotation.component.ConfigurationPolicy;
 
 //import org.osgi.service.component.annotations.Component;
 // http://cxf.apache.org/dosgi-ds-demo-page.html
@@ -24,13 +21,17 @@ import net.sf.companymanager.rest.EmployeeResource;
 //@Component(service = EmployeeResource.class, properties = { "org.apache.cxf.ws.address=http://localhost:9090/adder" })
 //@Component(provide = EmployeeResource.class, properties = { "org.apache.cxf.ws.address=http://localhost:8181/employee",
 //      "service.exported.interfaces=*", "service.exported.configs=org.apache.cxf.ws" })
-
+//  @Component(properties="service.pid=
+//@Component(properties = "service.pid=org.apache.karaf.webconsole")
+//@Component(properties = "service.pid=org.apache.cxf.osgi", configurationPolicy = ConfigurationPolicy.require)
+@Component(configurationPolicy = ConfigurationPolicy.require)
 public class EmployeeResourceImpl implements EmployeeResource {
 
     public EmployeeResourceImpl() {
         System.out.println("EmployeeResourceImpl activated");
     }
 
+    @Override
     public String hello() {
         return "hola holitas";
     }
