@@ -9,27 +9,31 @@ import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceRegistration;
 // https://github.com/apache/cxf-dosgi/tree/master/samples/greeter_rest
+// http://git.eclipse.org/c/ecf/org.eclipse.ecf.git/tree/examples/bundles
+
 public class Activator implements BundleActivator {
 
     private ServiceRegistration registration;
 
-    public void start(BundleContext bc) throws Exception {
-        Dictionary<String, Object> props = getProperties("/employee");
+    @Override
+    public void start(final BundleContext bc) throws Exception {
+        final Dictionary<String, Object> props = getProperties("/api");
         registration = bc.registerService(EmployeeResource.class.getName(), new EmployeeResourceImpl(), props);
     }
 
-    private Dictionary<String, Object> getProperties(String address) {
-        Dictionary<String, Object> props = new Hashtable<String, Object>();
+    private Dictionary<String, Object> getProperties(final String address) {
+        final Dictionary<String, Object> props = new Hashtable<String, Object>();
 
         props.put("service.exported.interfaces", "*");
         props.put("service.exported.configs", "org.apache.cxf.rs");
         props.put("service.exported.intents", "HTTP");
         props.put("org.apache.cxf.rs.httpservice.context", address);
-        //props.put("org.apache.cxf.rs.address", "/employee");
+        // props.put("org.apache.cxf.rs.address", "/employee");
         return props;
     }
 
-    public void stop(BundleContext bc) throws Exception {
+    @Override
+    public void stop(final BundleContext bc) throws Exception {
         registration.unregister();
     }
 }

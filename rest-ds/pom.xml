@@ -74,7 +74,9 @@
               *
             </Import-Package>
             <Export-Package>net.sf.companymanager.rest.*</Export-Package>
+            <!-- 
             <Bundle-Activator>net.sf.companymanager.rest.Activator</Bundle-Activator>
+             -->
             <DynamicImport-Package>org.apache.cxf.dosgi.dsw.qos,org.apache.cxf</DynamicImport-Package>
             <!-- Parse compendium annotation
               <_dsannotations>*</_dsannotations>
