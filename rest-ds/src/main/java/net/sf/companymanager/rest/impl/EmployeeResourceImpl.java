@@ -24,7 +24,7 @@ import aQute.bnd.annotation.component.ConfigurationPolicy;
 //  @Component(properties="service.pid=
 //@Component(properties = "service.pid=org.apache.karaf.webconsole")
 //@Component(properties = "service.pid=org.apache.cxf.osgi", configurationPolicy = ConfigurationPolicy.require)
-@Component(configurationPolicy = ConfigurationPolicy.require)
+@Component(properties = "service.pid=org.apache.cxf.osgi")
 public class EmployeeResourceImpl implements EmployeeResource {
 
     public EmployeeResourceImpl() {
