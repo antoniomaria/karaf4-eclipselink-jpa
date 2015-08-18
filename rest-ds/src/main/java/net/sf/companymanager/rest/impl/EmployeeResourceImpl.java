@@ -12,19 +12,21 @@ package net.sf.companymanager.rest.impl;
 
 import net.sf.companymanager.rest.EmployeeResource;
 import aQute.bnd.annotation.component.Component;
-import aQute.bnd.annotation.component.ConfigurationPolicy;
 
 //import org.osgi.service.component.annotations.Component;
 // http://cxf.apache.org/dosgi-ds-demo-page.html
 // https://kishanthan.wordpress.com/2014/03/29/using-annotation-with-osgi-declarative-services/
 // http://wiki.osgi.org/wiki/Declarative_Services
-//@Component(service = EmployeeResource.class, properties = { "org.apache.cxf.ws.address=http://localhost:9090/adder" })
-//@Component(provide = EmployeeResource.class, properties = { "org.apache.cxf.ws.address=http://localhost:8181/employee",
-//      "service.exported.interfaces=*", "service.exported.configs=org.apache.cxf.ws" })
-//  @Component(properties="service.pid=
-//@Component(properties = "service.pid=org.apache.karaf.webconsole")
+
 //@Component(properties = "service.pid=org.apache.cxf.osgi", configurationPolicy = ConfigurationPolicy.require)
-@Component(properties = "service.pid=org.apache.cxf.osgi")
+
+/**
+ * Service available in http://localhost:8181/api/employee 
+ * @author antoniomaria
+ *
+ */
+@Component(provide = EmployeeResource.class, properties = { "service.exported.interfaces=*", "service.exported.configs=org.apache.cxf.rs",
+        "org.apache.cxf.rs.httpservice.context=/api", "org.apache.cxf.rs.address=/", "service.exported.intents=HTTP" })
 public class EmployeeResourceImpl implements EmployeeResource {
 
     public EmployeeResourceImpl() {
