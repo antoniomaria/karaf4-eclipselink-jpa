@@ -71,6 +71,8 @@
     <module>persistence</module>
     <module>karaf-assembly</module>
     <module>karaf-features</module>
+    <module>object-mapper-ds</module>
+   
     <module>services-ds</module>
     <module>rest-ds</module>
 
