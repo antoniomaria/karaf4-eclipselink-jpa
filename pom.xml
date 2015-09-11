@@ -75,7 +75,7 @@
    
     <module>services-ds</module>
     <module>rest-ds</module>
-
+  <module>rest-ds-discovery</module>
   </modules>
   <repositories>
     <repository>
