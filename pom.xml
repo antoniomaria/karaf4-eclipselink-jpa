@@ -18,9 +18,8 @@
       <pax-logging-logback.version>1.8.2</pax-logging-logback.version>
     -->
 
-    <karaf.version>4.0.0</karaf.version>
+    <karaf.version>4.0.1</karaf.version>
     <pax-logging-service.version>1.8.3</pax-logging-service.version>
-    <pax-web-features.version>3.1.4</pax-web-features.version>
     <pax-logging-logback.version>1.8.3</pax-logging-logback.version>
 
 
