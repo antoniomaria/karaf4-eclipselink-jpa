@@ -14,6 +14,7 @@
   <modules>
     <module>cm-ext-logback</module>
     <module>cm-ext-postgres</module>
+    <module>cm-mapper</module>
     <module>cm-persistence</module>
     <module>cm-platform</module>
 
