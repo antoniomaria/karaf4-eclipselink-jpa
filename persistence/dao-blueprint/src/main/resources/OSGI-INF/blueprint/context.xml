@@ -22,10 +22,11 @@
 
   <bean id="departmentRepositoryImpl" class="net.sf.companymanager.repository.impl.DepartmentRepositoryImpl" />
   <bean id="employeeRepositoryImpl" class="net.sf.companymanager.repository.impl.EmployeeRepositoryImpl" />
+ <bean id="officeRepositoryImpl" class="net.sf.companymanager.repository.impl.OfficeRepositoryImpl" />
 
   <!-- Factories https://github.com/apache/aries/blob/trunk/blueprint/blueprint-core/src/test/resources/test-generics.xml -->
-
+<!-- 
   <bean id="officeRepositoryFactory" class="net.sf.companymanager.repository.support.OfficeRepositoryFactory" />
 
-  <bean id="officeRepositoryImpl" factory-ref="officeRepositoryFactory" factory-method="getObject" />
+  <bean id="officeRepositoryImpl" factory-ref="officeRepositoryFactory" factory-method="getObject" /> -->
 </blueprint>

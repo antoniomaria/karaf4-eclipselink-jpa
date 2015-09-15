@@ -7,7 +7,10 @@
  ******************************************************************************/
 package net.sf.companymanager.rest.impl;
 
-import net.sf.companymanager.rest.EmployeeResource;
+import aQute.bnd.annotation.component.Component;
+import aQute.bnd.annotation.component.Reference;
+import net.sf.companymanager.rest.OfficeResource;
+import net.sf.companymanager.services.OfficeService;
 
 // import org.osgi.service.component.annotations.Component;
 // http://cxf.apache.org/dosgi-ds-demo-page.html
@@ -22,18 +25,27 @@ import net.sf.companymanager.rest.EmployeeResource;
  * @author antoniomaria
  *
  */
-/*-
-@Component(provide = EmployeeResource.class, properties = { "service.exported.interfaces=*", "service.exported.configs=org.apache.cxf.rs",
-        "org.apache.cxf.rs.httpservice.context=/api", "org.apache.cxf.rs.address=/", "service.exported.intents=HTTP" })
-*/
-public class EmployeeResourceImpl implements EmployeeResource {
+@Component(immediate = true, provide = OfficeResource.class)
+public class OfficeResourceImpl implements OfficeResource {
+    private OfficeService officeService;
 
-    public EmployeeResourceImpl() {
-        System.out.println("EmployeeResourceImpl activated");
+    public OfficeResourceImpl() {
+        System.out.println("OfficeResourceImpl activated");
     }
 
     @Override
     public String hello() {
+        if (officeService == null) {
+            System.out.println("officeService chungo");
+        } else {
+            System.out.println("officeService set ijuu!!!");
+        }
         return "hola holitas";
     }
+
+    @Reference
+    public void setOfficeService(OfficeService officeService) {
+        this.officeService = officeService;
+    }
+
 }

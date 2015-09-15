@@ -2,6 +2,7 @@
 <features name="cm-rest">
 
   <feature name="cm-rest" description="companymanager rest">
+   <bundle start-level="85">mvn:net.sf.companymanager/companymanager-rest-ds-discovery/0.6.0-SNAPSHOT</bundle>
     <feature>cm-services</feature>
     <feature>cxf-dosgi-discovery-local</feature>
   </feature>

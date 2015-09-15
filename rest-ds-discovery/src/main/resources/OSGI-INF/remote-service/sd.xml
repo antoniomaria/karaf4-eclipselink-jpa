@@ -1,0 +1,12 @@
+<service-decorations xmlns="http://cxf.apache.org/xmlns/service-decoration/1.0.0">
+  <service-decoration>
+   <!-- https://github.com/apache/cxf-dosgi/blob/master/felix/profiles/resources/OSGI-INF/remote-service/alt-remote-services.xml -->
+    <match interface="net.sf.companymanager.rest.OfficeResource">
+      <add-property name="service.exported.interfaces" value="*" />
+      <add-property name="service.exported.configs" value="org.apache.cxf.rs" />
+      <add-property name="org.apache.cxf.rs.httpservice.context" value="/api" />
+      <add-property name="org.apache.cxf.rs.address" value="/" />
+      <add-property name="service.exported.intents" value="HTTP" />
+    </match>
+  </service-decoration>
+</service-decorations>
