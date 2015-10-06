@@ -24,7 +24,7 @@ import aQute.bnd.annotation.component.Component;
  *
  */
 @Component(provide = EmployeeResource.class, properties = { "service.exported.interfaces=*", "service.exported.configs=org.apache.cxf.rs",
-        "org.apache.cxf.rs.httpservice.context=/api/employee", "org.apache.cxf.rs.address=/api/employee", "service.exported.intents=HTTP" })
+        "org.apache.cxf.rs.address=/employee", "service.exported.intents=HTTP" })
 public class EmployeeResourceImpl implements EmployeeResource {
 
     public EmployeeResourceImpl() {

@@ -26,7 +26,7 @@ import aQute.bnd.annotation.component.Reference;
  *
  */
 @Component(provide = OfficeResource.class, properties = { "service.exported.interfaces=*", "service.exported.configs=org.apache.cxf.rs",
-        "org.apache.cxf.rs.httpservice.context=/api/office", "org.apache.cxf.rs.address=/api/office", "service.exported.intents=HTTP" })
+        "org.apache.cxf.rs.address=/office", "service.exported.intents=HTTP" })
 public class OfficeResourceImpl implements OfficeResource {
     private OfficeService officeService;
 
