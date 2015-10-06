@@ -12,7 +12,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-@Path("/office")
+//@Path("/office")
+@Path(value = "")
 @Produces(MediaType.APPLICATION_JSON)
 public interface OfficeResource {
 

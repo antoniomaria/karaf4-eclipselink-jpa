@@ -17,7 +17,7 @@
 
     <feature>http-whiteboard</feature>
 
-    <feature>shiro-core</feature>
+    <feature>shiro-web</feature>
     <feature>liquibase-extender</feature>
     <feature version="[4.0.7.RELEASE_1,4.1)">spring</feature>
 
@@ -35,7 +35,8 @@
 
   </feature>
 
-  <feature name="shiro-core" version="${shiro.version}">
+  <feature name="shiro-web" version="${shiro.version}">
     <bundle>mvn:org.apache.shiro/shiro-core/${shiro.version}</bundle>
+    <bundle>mvn:org.apache.shiro/shiro-web/${shiro.version}</bundle>
   </feature>
 </features>

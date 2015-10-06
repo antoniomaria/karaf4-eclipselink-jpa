@@ -7,10 +7,10 @@
  ******************************************************************************/
 package net.sf.companymanager.rest.impl;
 
-import aQute.bnd.annotation.component.Component;
-import aQute.bnd.annotation.component.Reference;
 import net.sf.companymanager.rest.OfficeResource;
 import net.sf.companymanager.services.OfficeService;
+import aQute.bnd.annotation.component.Component;
+import aQute.bnd.annotation.component.Reference;
 
 // import org.osgi.service.component.annotations.Component;
 // http://cxf.apache.org/dosgi-ds-demo-page.html
@@ -25,7 +25,8 @@ import net.sf.companymanager.services.OfficeService;
  * @author antoniomaria
  *
  */
-@Component(immediate = true, provide = OfficeResource.class)
+@Component(provide = OfficeResource.class, properties = { "service.exported.interfaces=*", "service.exported.configs=org.apache.cxf.rs",
+        "org.apache.cxf.rs.httpservice.context=/api/office", "org.apache.cxf.rs.address=/api/office", "service.exported.intents=HTTP" })
 public class OfficeResourceImpl implements OfficeResource {
     private OfficeService officeService;
 
@@ -44,7 +45,7 @@ public class OfficeResourceImpl implements OfficeResource {
     }
 
     @Reference
-    public void setOfficeService(OfficeService officeService) {
+    public void setOfficeService(final OfficeService officeService) {
         this.officeService = officeService;
     }
 

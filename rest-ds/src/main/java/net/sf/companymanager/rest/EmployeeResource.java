@@ -15,7 +15,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-@Path("/employee")
+//@Path("/employee")
+@Path(value = "")
 @Produces(MediaType.APPLICATION_JSON)
 public interface EmployeeResource {
 

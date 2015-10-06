@@ -8,6 +8,7 @@
 package net.sf.companymanager.rest.impl;
 
 import net.sf.companymanager.rest.EmployeeResource;
+import aQute.bnd.annotation.component.Component;
 
 // import org.osgi.service.component.annotations.Component;
 // http://cxf.apache.org/dosgi-ds-demo-page.html
@@ -22,10 +23,8 @@ import net.sf.companymanager.rest.EmployeeResource;
  * @author antoniomaria
  *
  */
-/*-
 @Component(provide = EmployeeResource.class, properties = { "service.exported.interfaces=*", "service.exported.configs=org.apache.cxf.rs",
-        "org.apache.cxf.rs.httpservice.context=/api", "org.apache.cxf.rs.address=/", "service.exported.intents=HTTP" })
-*/
+        "org.apache.cxf.rs.httpservice.context=/api/employee", "org.apache.cxf.rs.address=/api/employee", "service.exported.intents=HTTP" })
 public class EmployeeResourceImpl implements EmployeeResource {
 
     public EmployeeResourceImpl() {

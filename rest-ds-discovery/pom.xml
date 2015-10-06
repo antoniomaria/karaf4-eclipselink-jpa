@@ -9,7 +9,9 @@
   <artifactId>companymanager-rest-ds-discovery</artifactId>
   <name>cm :: Module  :: Rest DS Discovery</name>
   <url>https://github.com/antoniomaria/companymanager</url>
-
+  <properties>
+    <pax-web-api.version>4.2.0</pax-web-api.version>
+  </properties>
   <dependencies>
     <!-- Test dependencies -->
     <dependency>
@@ -18,6 +20,24 @@
       <scope>test</scope>
     </dependency>
 
+    <!-- Apache Shiro -->
+    <dependency>
+      <groupId>org.apache.shiro</groupId>
+      <artifactId>shiro-core</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.shiro</groupId>
+      <artifactId>shiro-web</artifactId>
+      <version>${shiro.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.ops4j.pax.web</groupId>
+      <artifactId>pax-web-api</artifactId>
+      <version>${pax-web-api.version}</version>
+      <scope>provided</scope>
+    </dependency>
     <!-- Project libraries -->
 
     <dependency>
@@ -33,6 +53,24 @@
       <scope>compile</scope>
     </dependency>
 
+    <dependency>
+      <groupId>biz.aQute</groupId>
+      <artifactId>bndlib</artifactId>
+      <version>2.0.0.20130123-133441</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>3.0.1</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.shiro</groupId>
+      <artifactId>shiro-core</artifactId>
+    </dependency>
   </dependencies>
   <build>
     <plugins>
@@ -47,6 +85,9 @@
               *
             </Import-Package>
             <Export-Package>net.sf.companymanager.discovery.*</Export-Package>
+            <!-- 
+            <Bundle-Activator>net.sf.companymanager.discovery.SecurityManager</Bundle-Activator>
+             -->
             <DynamicImport-Package>org.apache.cxf.dosgi.dsw.qos,org.apache.cxf</DynamicImport-Package>
             <_dsannotations>*</_dsannotations>
           </instructions>
