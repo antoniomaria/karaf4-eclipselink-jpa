@@ -13,4 +13,6 @@ package net.sf.companymanager.services;
 import net.sf.companymanager.domain.Office;
 
 public interface OfficeService extends PersistenceService<Office> {
+
+	Office saveWithinBlueprintTx(Office entity);
 }
